@@ -1,13 +1,11 @@
 ---
 layout: episode
 title: "Git bisect exercise"
-teaching: 15
-exercises: 20
+teaching: 0
+exercises: 15
 questions:
-  - "How can we find out who introduced a line of code and when exactly?"
   - "How can we find out which commit broke a functionality?"
 objectives:
-  - "Quickly find a line of code, find out who introduced it, when, and why."
   - "Quickly find the commit that changed a behavior."
 keypoints:
   - "`git bisect`, `git grep`, `git blame`, `git show` are a powerful combination when doing archaeology in a project."
