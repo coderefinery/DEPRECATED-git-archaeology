@@ -8,7 +8,7 @@ questions:
 objectives:
   - "Quickly find the commit that changed a behavior."
 keypoints:
-  - "`git bisect`, `git grep`, `git blame`, `git show` are a powerful combination when doing archaeology in a project."
+  - "git bisect/grep/blame/show are a powerful combination when doing archaeology in a project."
 ---
 
 ## Finding out when something broke
