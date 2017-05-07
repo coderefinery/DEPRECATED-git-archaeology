@@ -4,9 +4,9 @@ title: "Inspecting history"
 teaching: 15
 exercises: 0
 questions:
-  - "How can we find out who introduced a line of code and when exactly?"
+  - How can we find out who introduced a line of code and when exactly?
 objectives:
-  - "Quickly find a line of code, find out who introduced it, when, and why."
+  - Quickly find a line of code, find out who introduced it, when, and why.
 ---
 
 ## Inspecting commits
@@ -14,34 +14,44 @@ objectives:
 At any moment we can inspect individual commits with `git show`:
 
 ```shell
-$ git show 47a00
+$ git show e83c51633
 
-commit 47a007d563adb03aeedbddeb483d3c6c0301c10a
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Wed Dec 7 17:27:04 2016 +0100
+commit e83c5163316f89bfbde7d9ab23ca2e25604af290
+Author: Linus Torvalds <torvalds@ppc970.osdl.org>
+Date:   Thu Apr 7 15:13:13 2005 -0700
 
-    completed the haiku
+    Initial revision of "git", the information manager from hell
 
-diff --git a/haiku.py b/haiku.py
-index dd98a4c..a2f8de8 100644
---- a/haiku.py
-+++ b/haiku.py
-@@ -1,4 +1,9 @@
- def get_haiku():
-
-     return '''On a branch ...
--                  by Kobayashi Issa'''
-+                  by Kobayashi Issa
+...
+diff --git a/README b/README
+new file mode 100644
+index 000000000..27577f768
+--- /dev/null
++++ b/README
+@@ -0,0 +1,168 @@
 +
-+              On a branch
-+              floating downriver
-+              floating downriver
-+              a cricket, singing.'''
++       GIT - the stupid content tracker
++
++"git" can mean anything, depending on your mood.
++
++ - random three-letter combination that is pronounceable, and not
++   actually used by any common UNIX command.  The fact that it is a
++   mispronounciation of "get" may or may not be relevant.
++ - stupid. contemptible and despicable. simple. Take your pick from the
++   dictionary of slang.
++ - "global information tracker": you're in a good mood, and it actually
++   works for you. Angels sing, and a light suddenly fills the room.
++ - "goddamn idiotic truckload of sh*t": when it breaks
++
++This is a stupid (but extremely fast) directory content manager.  It
++doesn't do a whole lot, but what it _does_ do is track directory
++contents efficiently.
+...
 ```
 
 We see that the start of the hash is enough if it is unique.
 
-Compare this with: [https://github.com/bast/git-rebase-squash-exercise/commit/47a007d563adb03aeedbddeb483d3c6c0301c10a](https://github.com/bast/git-rebase-squash-exercise/commit/47a007d563adb03aeedbddeb483d3c6c0301c10a)
+Compare this with: [https://github.com/git/git/commit/e83c51633](https://github.com/git/git/commit/e83c51633)
 
 ---
 
