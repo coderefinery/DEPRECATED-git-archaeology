@@ -13,3 +13,4 @@ behavior.
 ## Prerequisites
 
 1. Basic understanding of Git.
+2. We build on top of [Introduction to version control with Git](https://coderefinery.github.io/git-intro/).
