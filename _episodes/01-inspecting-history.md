@@ -82,7 +82,7 @@ interest/module_interest_interface.F90:    !> fixme: contracted basis sets
 
 ## Finding out who introduced a modification and when
 
-- `git blame` is a fun and useful command to find out when a specific line got introduced and by whom
+- `git blame` is a fun and useful command to find out when a specific line got introduced and by whom.
 - This is important to judge the impact of a bug:
   - When was it introduced?
   - For how long has this bug been around?
@@ -91,7 +91,11 @@ interest/module_interest_interface.F90:    !> fixme: contracted basis sets
 
 ```shell
 $ git blame <filename>
+```
 
+Example from real life:
+
+```
 faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200) ! get the one electron Hamiltonian
 e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) H1 = 0*S
 e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) call mat_ensure_alloc(H1, only_alloc=.true.)
@@ -106,10 +110,9 @@ e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! Fock matrix F = H1 + G
 761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200) F = H1 + G
 ```
 
-- "Who the %&!@!!! wrote this crap?!?"
-- "Oh, it was me. Nevermind :-)"
+> *"Who the %&!@!!! wrote this crap?!? Oh, it was me."*
 
-Who edited the source file for `git grep` and when and why?
+Who was the last to edit a specific line of the source file for `git grep` and when and why?
 
 - [https://github.com/git/git/blame/master/grep.c](https://github.com/git/git/blame/master/grep.c)
 
@@ -117,8 +120,8 @@ Who edited the source file for `git grep` and when and why?
 
 ## Finding removed code
 
-I remember there used to be a line containing the word "great idea".
-Now it is gone:
+> *I remember there used to be a line containing the word "great idea".
+> Now it is gone:*
 
 ```shell
 $ git grep 'great idea'
@@ -136,6 +139,8 @@ bad55db more ideas
 81191b5 this is not a useful commit message
 baae463 initial layout
 ```
+
+What now?
 
 We can figure out when it disappeared:
 
@@ -176,17 +181,18 @@ index a09af89..a657b2b 100644
  mediocre idea
 ```
 
-Indeed!
+Indeed! Thank you, Git!
 
 ---
 
 ## Finding a developer to talk to (large projects)
 
-- Example: you want to know who implemented a specific keyword/functionality
-- `git grep` for the keyword or screen message
-- Then with `git blame` find the person who introduced it
-- With `git show` check the commit that introduced the change (it could be a file rename done by someone else)
-- In the latter case check out a version prior to the move or rename and `git grep` and `git blame` there
+Example: you want to know who implemented a specific keyword/functionality.
+
+- `git grep` for the keyword or screen message.
+- Then with `git blame` find the person who introduced it.
+- With `git show` check the commit that introduced the change (it could be a file rename done by someone else).
+- In the latter case check out a version prior to the move or rename and `git grep` and `git blame` there.
 
 ---
 
@@ -199,13 +205,13 @@ We can branch from arbitrary (earlier) hash:
 $ git checkout -b <name> <hash>
 ```
 
-This is the recommended mechanism to inspect old code (hash abc123):
+This is the recommended mechanism to inspect old code (example: hash *abc123*):
 
 ```shell
 $ git checkout -b museum abc123  # create branch called "museum" from hash abc123
   # do some archaeology ...
   # "What was I thinking back then!?"
-  # "Aha!"
+  # "Aha! Hmm."
 $ git checkout master            # after you are done switch back to "master"
 $ git branch -d museum
 ```
@@ -235,6 +241,7 @@ $ git cherry master
 + 65870f9c4147bace639a92b08250911b541364fe
 ```
 
-These six commits are on `haiku` but are not on `master`.
+These six commits are on the branch `haiku` but are not on `master`.
 
-Sometimes branches received different commits, then you will see hashes with "+" and "-" in front of them.
+Sometimes branches received different commits, then you will see hashes with
+"+" and "-" in front of them.
