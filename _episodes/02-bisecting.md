@@ -23,12 +23,12 @@ keypoints:
 $ git bisect start
 $ git bisect good 75c737cf5c9  # this is a commit that worked
 $ git bisect bad HEAD          # last commit is broken
-  # now compile and test
+  # now compile and/or run
   # after that decide whether
 $ git bisect good
   # or
 $ git bisect bad
-  # now compile and test
+  # now compile and/or run
   # after that decide whether
 $ git bisect good
   # or
@@ -37,7 +37,7 @@ $ git bisect bad
 ```
 
 - This can even be automatized with `git bisect run <script>`.
-- For this you write the script that returns zero/non-zero (success/failure).
+- For this you write a script that returns zero/non-zero (success/failure).
 
 ---
 
