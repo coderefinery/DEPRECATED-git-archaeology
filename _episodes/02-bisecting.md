@@ -4,11 +4,11 @@ title: "Git bisect exercise"
 teaching: 0
 exercises: 15
 questions:
-  - "How can we find out which commit broke a functionality?"
+  - How can we find out which commit broke or changed a functionality?
 objectives:
-  - "Quickly find the commit that changed a behavior."
+  - Quickly find the commit that changed a behavior.
 keypoints:
-  - "git bisect/grep/blame/show are a powerful combination when doing archaeology in a project."
+  - "`git bisect/grep/blame/show` is a powerful combination when doing archaeology in a project."
 ---
 
 ## Finding out when something broke
