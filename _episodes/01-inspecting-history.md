@@ -75,8 +75,8 @@ interest/module_interest_hrr.f90:  !-- fixme --!
 interest/module_interest_interface.F90:    !> fixme: contracted basis sets
 ```
 
-- Greps entire repository below current directory
-- Super fast
+- Greps entire repository below current directory.
+- Super fast. Sometimes it is worth creating a Git repository just for one `git grep`.
 
 ---
 
@@ -88,6 +88,7 @@ interest/module_interest_interface.F90:    !> fixme: contracted basis sets
   - For how long has this bug been around?
   - Has this bug been released?
   - Has this buggy code been used by others?
+  - Who introduced it? Not to blame people but to possibly get more information.
 
 ```shell
 $ git blame <filename>
@@ -110,6 +111,8 @@ e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! Fock matrix F = H1 + G
 761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200) F = H1 + G
 ```
 
+Rather typical timeline:
+
 > *"Who the %&!@!!! wrote this crap?!? Oh, it was me."*
 
 Who was the last to edit a specific line of the source file for `git grep` and when and why?
@@ -119,6 +122,8 @@ Who was the last to edit a specific line of the source file for `git grep` and w
 ---
 
 ## Finding removed code
+
+The day will come when you are in this situation:
 
 > *I remember there used to be a line containing the word "great idea".
 > Now it is gone:*

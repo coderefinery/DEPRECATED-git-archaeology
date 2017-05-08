@@ -13,6 +13,8 @@ keypoints:
 
 ## Finding out when something broke
 
+> *But I am sure it used to work! Strange.*
+
 - Sometimes you realize that something broke.
 - You know that it used to work.
 - You do not know when it broke.
@@ -49,8 +51,8 @@ Clone or fork it from [here](https://github.com/bast/git-bisect-exercise).
 ### Motivation
 
 The motivation for this exercise is to be able to do archaeology with Git on a
-source code where the bug is difficult to see visually. Finding the offending
-commit is often more than half the debugging.
+source code where the bug is difficult to see visually. **Finding the offending
+commit is often more than half the debugging**.
 
 
 ### Background

@@ -5,8 +5,9 @@ permalink: /
 
 # Lesson on archaeology with Git
 
-In this lesson we will learn how to quickly find a line of code, find out who introduced it,
-when, and why, and how to quickly find the commit that changed a certain code
+In this lesson we will learn how to quickly find a line of code, find out who
+introduced it, when, and why (provided the person wrote a useful commit
+message), and how to quickly find the commit that changed a certain code
 behavior.
 
 
