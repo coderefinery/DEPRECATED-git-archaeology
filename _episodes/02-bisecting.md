@@ -23,8 +23,8 @@ keypoints:
 
 ```shell
 $ git bisect start
-$ git bisect good 75c737cf5c9  # this is a commit that worked
-$ git bisect bad HEAD          # last commit is broken
+$ git bisect good 89578ed  # this is a commit that worked
+$ git bisect bad HEAD      # last commit is broken
   # now compile and/or run
   # after that decide whether
 $ git bisect good
@@ -58,13 +58,13 @@ commit is often more than half the debugging**.
 ### Background
 
 The script `get_pi.py` approximates pi using terms of the Nilakantha series. It
-should produce 3.141519 but it does not. The script broke at some point and
-produces 3.57361 using the last commit:
+should produce 3.14 but it does not. The script broke at some point and
+produces 3.57 using the last commit:
 
 ```
 $ python get_pi.py
 
-3.573618985595276
+3.57
 ```
 
 At some point within the 500 first commits, an error was introduced. The only
@@ -74,6 +74,13 @@ thing we know is that the first commit worked correctly.
 ### Your task
 
 Use `git bisect` to find the commit which broke the computation.
+
+
+### How to find the first commit
+
+```
+$ git log --oneline --reverse
+```
 
 
 ### Bonus exercise
