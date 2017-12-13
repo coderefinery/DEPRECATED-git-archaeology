@@ -196,8 +196,7 @@ Example: you want to know who implemented a specific keyword/functionality.
 
 - `git grep` for the keyword or screen message.
 - Then with `git blame` find the person who introduced it.
-- With `git show` check the commit that introduced the change (it could be a file rename done by someone else).
-- In the latter case check out a version prior to the move or rename and `git grep` and `git blame` there.
+- With `git show` verify the commit that introduced the change.
 
 ---
 
