@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: "Git bisect exercise"
-teaching: 0
-exercises: 15
+teaching: 5
+exercises: 25
 questions:
   - How can we find out which commit broke or changed a functionality?
 objectives:
