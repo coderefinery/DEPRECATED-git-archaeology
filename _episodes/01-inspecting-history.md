@@ -7,6 +7,11 @@ questions:
   - How can we find out who introduced a line of code and when exactly?
 objectives:
   - Quickly find a line of code, find out who introduced it, when, and why.
+keypoints:
+  - "`git show` shows details of a commit" 
+  - "`git grep` is a fast way to find specific patterns"
+  - "`git blame` shows commit hashes and authors for each line of a file"
+  - "`git log -S` shows when code was added and removed"
 ---
 
 ## Inspecting commits
