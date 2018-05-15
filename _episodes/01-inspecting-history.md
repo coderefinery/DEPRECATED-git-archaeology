@@ -126,6 +126,24 @@ Who was the last to edit a specific line of the source file for `git grep` and w
 
 ---
 
+## Grepping commit messages
+
+- Another possible scenario is that you're looking for a particular commit, but can't 
+easily find it with `git blame`.
+- You can however remember (or guess) some keywords from the commit message
+- Commit messages can also be grepped!
+
+Real-life example:
+```shell
+$ git log --oneline --grep "removed"
+
+37f3a26 fixed a litle error I just introduced in the makefile, and removed TRASHUP
+b9a3382 checked the addDfileds and removed the commented stuff
+0ecc02a removed unused multipole-Ewald files
+```
+
+---
+
 ## Finding removed code
 
 The day will come when you are in this situation:
