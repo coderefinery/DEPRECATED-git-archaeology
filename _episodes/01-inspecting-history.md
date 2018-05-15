@@ -11,7 +11,9 @@ keypoints:
   - "`git show` shows details of a commit" 
   - "`git grep` is a fast way to find specific patterns"
   - "`git blame` shows commit hashes and authors for each line of a file"
+  - "`git log --grep` finds patterns in commit messages"
   - "`git log -S` shows when code was added and removed"
+  - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code" 
 ---
 
 ## Inspecting commits
@@ -61,6 +63,8 @@ Compare this with: [https://github.com/git/git/commit/e83c51633](https://github.
 ---
 
 ## Grepping code
+
+What if the combination of `git log` and `git show` is not enough?
 
 ```shell
 $ git grep -i fixme
