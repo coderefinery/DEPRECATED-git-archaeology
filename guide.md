@@ -29,9 +29,9 @@ at the end of this lesson.
 
 ### Timing
 
-This is a 45-60 minute lesson and the amount of material is typically 
+This is a 45-60 minute lesson and the amount of material is typically
 not too much to be able to finish in good time. There is a bonus exercise
-at the end of the `git bisect` exercise which can be tackled by learners 
+at the end of the `git bisect` exercise which can be tackled by learners
 who quickly solve the main exercise.
 
 
@@ -42,8 +42,8 @@ who quickly solve the main exercise.
 
 ### Sessions which can be skipped if time is tight
 
-There is usually no need to skip any parts of this lesson, but in exceptional cases 
-one can give the learners less time to solve the `git bisect` exercise and 
+There is usually no need to skip any parts of this lesson, but in exceptional cases
+one can give the learners less time to solve the `git bisect` exercise and
 solve it live in a type-along fashion.
 
 
@@ -52,7 +52,7 @@ solve it live in a type-along fashion.
 #### Confusion during `git bisect` exercise
 
 Learners may get stuck in the `git bisect` exercise if they incorrectly assign a commit
-as *bad* or *good*. 
+as *bad* or *good*.
 To leave the bisect mode and return to the commit before `git bisect start` was issued,
 one can do
 ```shell
