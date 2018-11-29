@@ -7,10 +7,12 @@ permalink: /guide/
 
 ### How to start
 
-This is typically the final Git lesson in a workshop. It can be useful to emphasize 
-that most of what people need to know to before becoming proficient Git users has 
-already been covered, except that it can be really valuable to be able to search 
-through the history of a project efficiently to find when bugs were introduced.
+This lesson is placed after participants have created commits and branches but
+before we have discussed collaboration. It can be useful to emphasize that it
+can be really valuable to be able to search through the history of a project
+efficiently to find when bugs were introduced or when something changed and
+why.
+
 
 ### How to wrap up
 
