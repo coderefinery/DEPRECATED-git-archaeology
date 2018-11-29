@@ -37,6 +37,14 @@ on GitHub and GitLab.
   precisely this changed?
 
 
+### When more important than who
+
+When discussing `git blame` and `git bisect` the "when" is more important than "who". It is not
+to blame anybody but rather to find out whether published results are affected.
+
+Discuss how one would find out this information without version control.
+
+
 ### Timing
 
 This is a 45-60 minute lesson and the amount of material is typically
