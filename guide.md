@@ -16,9 +16,9 @@ why.
 
 ### How to wrap up
 
-Topics like branch design, rebasing and squashing are not covered in most 
-workshops due to time constraints. It's useful to point learners to the 
-[branch design lesson](https://coderefinery.github.io/git-branch-design/) 
+Topics like branch design, rebasing and squashing are not covered in some
+workshops due to time constraints. In this case, please point learners to the
+[branch design lesson](https://coderefinery.github.io/git-branch-design/)
 at the end of this lesson.
 
 
