@@ -26,6 +26,9 @@ at the end of this lesson.
 
 - Have you ever found a bug in your code and wondered whether it has affected published results?
 - Have you ever wondered when, and by whom, a particular line of code was introduced?
+- Have you ever found out that a code behaves differently than it used to but you are not sure when
+  precisely this changed?
+
 
 ### Timing
 
