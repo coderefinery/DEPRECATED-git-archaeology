@@ -65,6 +65,12 @@ one can give the learners less time to solve the `git bisect` exercise and
 solve it live in a type-along fashion.
 
 
+### Git grep example
+
+The "fixme" example is not to encourage placing "fixmes" across the code. Perhaps we need
+a better example.
+
+
 ### Typical pitfalls
 
 #### Confusion during `git bisect` exercise
