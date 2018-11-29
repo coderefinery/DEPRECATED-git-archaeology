@@ -22,6 +22,13 @@ workshops due to time constraints. In this case, please point learners to the
 at the end of this lesson.
 
 
+### Live better than reading the website material
+
+It is better to demonstrate the commands live and type-along. Ideally connecting
+to examples discussed earlier. Also show that `git blame` and `git show` are available
+on GitHub and GitLab.
+
+
 ### Questions to involve participants
 
 - Have you ever found a bug in your code and wondered whether it has affected published results?
