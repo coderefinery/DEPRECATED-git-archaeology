@@ -248,31 +248,3 @@ $ git branch -d museum
 ```
 
 Branches help us to keep the repository organized.
-
----
-
-## Finding commits not merged upstream
-
-So you would like to know which commits from current branch have not been
-merged to `<branch>`. No problem with `git cherry`:
-
-Here is an example:
-
-```shell
-$ git clone https://github.com/bast/git-rebase-squash-exercise.git
-$ cd git-rebase-squash-exercise
-$ git checkout haiku
-$ git cherry master
-
-+ 7e1f903f77d2b6d8ac2b9a403e30367b5b7eeb4a
-+ 3ff39a18a24074e83ee30e4e959d3863ae05ed82
-+ 54fba2116e74af3170314d0e2be85b34c6f27490
-+ a3278e36ddbbd8b1feff38ba973ede4b3d9323c9
-+ 47a007d563adb03aeedbddeb483d3c6c0301c10a
-+ 65870f9c4147bace639a92b08250911b541364fe
-```
-
-These six commits are on the branch `haiku` but are not on `master`.
-
-Sometimes branches received different commits, then you will see hashes with
-"+" and "-" in front of them.
