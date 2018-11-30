@@ -22,7 +22,7 @@ Clone the repository of `git` itself from [here](https://github.com/git/git).
 
 At any moment we can inspect individual commits with `git show`:
 
-```shell
+```
 $ git show e83c51633
 
 commit e83c5163316f89bfbde7d9ab23ca2e25604af290
