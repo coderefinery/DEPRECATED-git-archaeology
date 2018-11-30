@@ -8,19 +8,21 @@ questions:
 objectives:
   - Quickly find a line of code, find out who introduced it, when, and why.
 keypoints:
-  - "`git show` shows details of a commit" 
+  - "`git show` shows details of a commit"
   - "`git grep` is a fast way to find specific patterns"
   - "`git blame` shows commit hashes and authors for each line of a file"
   - "`git log --grep` finds patterns in commit messages"
   - "`git log -S` shows when code was added and removed"
-  - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code" 
+  - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code"
 ---
+
+Clone the repository of `git` itself from [here](https://github.com/git/git).
 
 ## Inspecting commits
 
 At any moment we can inspect individual commits with `git show`:
 
-```shell
+```
 $ git show e83c51633
 
 commit e83c5163316f89bfbde7d9ab23ca2e25604af290
@@ -66,22 +68,21 @@ Compare this with: [https://github.com/git/git/commit/e83c51633](https://github.
 
 What if the combination of `git log` and `git show` is not enough?
 
-```shell
-$ git grep -i fixme
+```
+$ git grep -i indexing
 
-densfit/df_vxc.F:!fixme call XC integrator
-dirac/dirgrd.F:!FIXME: there is some issue with one-step - investigate later
-dirac/dirrdn.F:!       fixme num grid report should be independent of DFT
-dirac/dirscf.F:        !fixme: michal for InteRest
-dirac/dirscf.F:          !fixme: michal for InteRest
-dirac/dirscf.F:          !fixme: michal for InteRest
-embedding/get_vemb_mat.F:!fixme irep can be < 0 in NONREL runs
-eri/eri2out.F:!fixme
-eri/eri2out.F:!fixme
-eri/eri2out.F:!fixme
-gp/gpkrmc.F:C     FIXME: dette ser ikke ud til at virke for complex groups.
-interest/module_interest_hrr.f90:  !-- fixme --!
-interest/module_interest_interface.F90:    !> fixme: contracted basis sets
+Documentation/config/add.txt:   added due to indexing errors. Equivalent to the `--ignore-errors`
+Documentation/git-add.txt:      If some files could not be added because of errors indexing
+Documentation/git-clone.txt:branch of some repository for search indexing.
+builtin/index-pack.c:                           from_stdin ? _("Receiving objects") : _("Indexing objects"),
+compat/nedmalloc/malloc.c.h:/* ---------------------------- Indexing Bins ---------------------------- */
+compat/nedmalloc/nedmalloc.c:   if(bestsize!=size)      /* dlmalloc can round up, so we round down to preserve indexing */
+diff-delta.c:   /* Determine index hash size.  Note that indexing skips the
+hash.h: * Note that these constants are suitable for indexing the hash_algos array and
+po/bg.po:msgid "read error while indexing %s"
+po/bg.po:msgid "short read while indexing %s"
+po/bg.po:msgid "Indexing objects"
+
 ```
 
 - Greps entire repository below current directory.
@@ -106,45 +107,55 @@ $ git blame <filename>
 Example from real life:
 
 ```
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200) ! get the one electron Hamiltonian
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) H1 = 0*S
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) call mat_ensure_alloc(H1, only_alloc=.true.)
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200) call interface_scf_get_h1(H1)
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200)
-e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! get the two electron contribution (G) to Fock matrix
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) G = 0*S
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) call mat_ensure_alloc(G, only_alloc=.true.)
-810e14d8 (Radovan Bast      2012-07-01 17:19:56 +0200) call interface_scf_get_g(D, G)
-761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200)
-e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! Fock matrix F = H1 + G
-761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200) F = H1 + G
+$ git blame blame.c
+
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    1) #include "cache.h"
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    2) #include "refs.h"
+cbd53a2193 (Stefan Beller           2018-05-15 16:42:15 -0700    3) #include "object-store.h"
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    4) #include "cache-tree.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    5) #include "mergesort.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    6) #include "diff.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    7) #include "diffcore.h"
+09002f1b31 (Jeff Smith              2017-05-24 00:15:36 -0500    8) #include "tag.h"
+f5dd754c36 (Jeff Smith              2017-05-24 00:15:33 -0500    9) #include "blame.h"
+14ba97f81c (Stefan Beller           2018-05-15 14:48:42 -0700   10) #include "alloc.h"
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   11) #include "commit-slab.h"
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   12)
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   13) define_commit_slab(blame_suspects, struct blame_origin *);
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   14) static struct blame_suspects blame_suspects;
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   15)
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   16) struct blame_origin *get_blame_suspects(struct commit *commit)
 ```
 
 Rather typical timeline:
 
 > *"Who the %&!@!!! wrote this crap?!? Oh, it was me."*
 
-Who was the last to edit a specific line of the source file for `git grep` and when and why?
+Who was the last to edit a specific line of the source file for `git blame` and when and why?
 
-- [https://github.com/git/git/blame/master/grep.c](https://github.com/git/git/blame/master/grep.c)
+- [https://github.com/git/git/blame/master/blame.c](https://github.com/git/git/blame/master/blame.c)
 
 ---
 
 ## Grepping commit messages
 
-- Another possible scenario is that you're looking for a particular commit, but can't 
+- Another possible scenario is that you're looking for a particular commit, but can't
 easily find it with `git blame`.
 - You can however remember (or guess) some keywords from the commit message
 - Commit messages can also be grepped!
 
 Real-life example:
-```shell
+```
 $ git log --oneline --grep "removed"
 
-37f3a26 fixed a litle error I just introduced in the makefile, and removed TRASHUP
-b9a3382 checked the addDfileds and removed the commented stuff
-0ecc02a removed unused multipole-Ewald files
+9a4cb8781 builtin/notes: remove unnecessary free
+d1664e73a add: speed up cmd_add() by utilizing read_cache_preload()
+bf1e6da79 compat: make sure git_mmap is not expected to write
+2588f6ed8 shallow: offer to prune only non-existing entries
+1dcd9f204 midx: close multi-pack-index on repack
 ```
+
+Note that `git log --grep` will grep the whole commit message even if you use the `--oneline` option.
 
 ---
 
@@ -152,65 +163,77 @@ b9a3382 checked the addDfileds and removed the commented stuff
 
 The day will come when you are in this situation:
 
-> *I remember there used to be a line containing the word "great idea".
+> *I remember there used to be a line containing the word "the_repository".
 > Now it is gone:*
 
-```shell
-$ git grep 'great idea'
+```
+$ git grep "the_repository" grep.c
 
 [no output]
 ```
+(You can also grep all files at once: `git grep "the_repository"`)
 
 Sometimes also the log does not help because the commit messages are not helpful:
 
-```shell
-$ git log --oneline
+```
+$ git log --oneline grep.c
 
-2bc6228 even more ideas
-bad55db more ideas
-81191b5 this is not a useful commit message
-baae463 initial layout
+4002e87cb grep: remove #ifdef NO_PTHREADS
+acd00ea04 userdiff.c: remove implicit dependency on the_index
+38bbc2ea3 grep.c: remove implicit dependency on the_index
+6afaf8078 diff.c: remove the_index dependency in textconv() functions
+87ece7ce1 Merge branch 'tb/grep-only-matching'
+d036d667b Merge branch 'tb/grep-column'
+00624d608 Merge branch 'sb/object-store-grafts'
+...
 ```
 
 What now?
 
 We can figure out when it disappeared:
 
-```shell
-$ git log -S 'great idea'
+```
+$ git log -S 'the_repository' grep.c
 
-commit 81191b5407687745e7f36b8ae4d78b7ea2377ff0
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:27:06 2016 +0200
+commit 38bbc2ea39372ce1b7eb494b31948f4a8a903f88
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:23 2018 +0200
 
-    this is not a useful commit message
+    grep.c: remove implicit dependency on the_index
+...
+commit 6afaf807859bd671a3f8e9101952e648a1a5e1a9
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:22 2018 +0200
 
-commit baae463ee30ff07a2e346852817cbd2038bd05df
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:26:48 2016 +0200
-
-    initial layout
+    diff.c: remove the_index dependency in textconv() functions
+...
 ```
 
 Now let us have a look at that commit:
 
-```shell
-$ git show 81191b5
+```
+$ git show 38bbc2e grep.c
 
-commit 81191b5407687745e7f36b8ae4d78b7ea2377ff0
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:27:06 2016 +0200
+commit 38bbc2ea39372ce1b7eb494b31948f4a8a903f88
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:23 2018 +0200
 
-    this is not a useful commit message
+    grep.c: remove implicit dependency on the_index
+...
 
-diff --git a/ideas.txt b/ideas.txt
-index a09af89..a657b2b 100644
---- a/ideas.txt
-+++ b/ideas.txt
-@@ -1,3 +1,2 @@
--great idea
- bad idea
- mediocre idea
+diff --git a/grep.c b/grep.c
+index e146ff20b..6c0eede3a 100644
+--- a/grep.c
++++ b/grep.c
+...
+@@ -1741,7 +1744,7 @@ static int fill_textconv_grep(struct userdiff_driver *driver,
+         * structure.
+         */
+        grep_read_lock();
+-       size = fill_textconv(the_repository, driver, df, &buf);
++       size = fill_textconv(r, driver, df, &buf);
+        grep_read_unlock();
+        free_filespec(df);
 ```
 
 Indeed! Thank you, Git!
