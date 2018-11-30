@@ -163,24 +163,28 @@ Note that `git log --grep` will grep the whole commit message even if you use th
 
 The day will come when you are in this situation:
 
-> *I remember there used to be a line containing the word "great idea".
+> *I remember there used to be a line containing the word "the_repository".
 > Now it is gone:*
 
-```shell
-$ git grep 'great idea'
+```
+$ git grep "the_repository" grep.c
 
 [no output]
 ```
+(You can also grep all files at once: `git grep "the_repository"`)
 
 Sometimes also the log does not help because the commit messages are not helpful:
 
-```shell
+```
 $ git log --oneline
 
-2bc6228 even more ideas
-bad55db more ideas
-81191b5 this is not a useful commit message
-baae463 initial layout
+4002e87cb grep: remove #ifdef NO_PTHREADS
+acd00ea04 userdiff.c: remove implicit dependency on the_index
+38bbc2ea3 grep.c: remove implicit dependency on the_index
+6afaf8078 diff.c: remove the_index dependency in textconv() functions
+87ece7ce1 Merge branch 'tb/grep-only-matching'
+d036d667b Merge branch 'tb/grep-column'
+00624d608 Merge branch 'sb/object-store-grafts'
 ```
 
 What now?
