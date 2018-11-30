@@ -146,10 +146,14 @@ Real-life example:
 ```shell
 $ git log --oneline --grep "removed"
 
-37f3a26 fixed a litle error I just introduced in the makefile, and removed TRASHUP
-b9a3382 checked the addDfileds and removed the commented stuff
-0ecc02a removed unused multipole-Ewald files
+9a4cb8781 builtin/notes: remove unnecessary free
+d1664e73a add: speed up cmd_add() by utilizing read_cache_preload()
+bf1e6da79 compat: make sure git_mmap is not expected to write
+2588f6ed8 shallow: offer to prune only non-existing entries
+1dcd9f204 midx: close multi-pack-index on repack
 ```
+
+Note that `git log --grep` will grep the whole commit message even if you use the `--oneline` option.
 
 ---
 
