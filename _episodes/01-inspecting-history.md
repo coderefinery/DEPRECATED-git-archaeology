@@ -145,7 +145,7 @@ easily find it with `git blame`.
 - Commit messages can also be grepped!
 
 Real-life example:
-```shell
+```
 $ git log --oneline --grep "removed"
 
 9a4cb8781 builtin/notes: remove unnecessary free
