@@ -108,27 +108,31 @@ $ git blame <filename>
 Example from real life:
 
 ```
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200) ! get the one electron Hamiltonian
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) H1 = 0*S
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) call mat_ensure_alloc(H1, only_alloc=.true.)
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200) call interface_scf_get_h1(H1)
-faa4617a (Radovan Bast      2012-07-02 11:04:45 +0200)
-e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! get the two electron contribution (G) to Fock matrix
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) G = 0*S
-e564cfe8 (A. J. Thorvaldsen 2012-12-25 00:59:21 +0100) call mat_ensure_alloc(G, only_alloc=.true.)
-810e14d8 (Radovan Bast      2012-07-01 17:19:56 +0200) call interface_scf_get_g(D, G)
-761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200)
-e6cfa2cf (Radovan Bast      2012-03-01 10:06:39 +0100) ! Fock matrix F = H1 + G
-761d5c27 (Radovan Bast      2012-05-18 16:28:34 +0200) F = H1 + G
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    1) #include "cache.h"
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    2) #include "refs.h"
+cbd53a2193 (Stefan Beller           2018-05-15 16:42:15 -0700    3) #include "object-store.h"
+072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    4) #include "cache-tree.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    5) #include "mergesort.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    6) #include "diff.h"
+b543bb1cdf (Jeff Smith              2017-05-24 00:15:35 -0500    7) #include "diffcore.h"
+09002f1b31 (Jeff Smith              2017-05-24 00:15:36 -0500    8) #include "tag.h"
+f5dd754c36 (Jeff Smith              2017-05-24 00:15:33 -0500    9) #include "blame.h"
+14ba97f81c (Stefan Beller           2018-05-15 14:48:42 -0700   10) #include "alloc.h"
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   11) #include "commit-slab.h"
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   12)
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   13) define_commit_slab(blame_suspects, struct blame_origin *);
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   14) static struct blame_suspects blame_suspects;
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   15)
+4e0df4e663 (Nguyễn Thái Ngọc Duy    2018-05-19 07:28:19 +0200   16) struct blame_origin *get_blame_suspects(struct commit *commit)
 ```
 
 Rather typical timeline:
 
 > *"Who the %&!@!!! wrote this crap?!? Oh, it was me."*
 
-Who was the last to edit a specific line of the source file for `git grep` and when and why?
+Who was the last to edit a specific line of the source file for `git blame` and when and why?
 
-- [https://github.com/git/git/blame/master/grep.c](https://github.com/git/git/blame/master/grep.c)
+- [https://github.com/git/git/blame/master/blame.c](https://github.com/git/git/blame/master/blame.c)
 
 ---
 
