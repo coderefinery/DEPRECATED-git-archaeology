@@ -176,7 +176,7 @@ $ git grep "the_repository" grep.c
 Sometimes also the log does not help because the commit messages are not helpful:
 
 ```
-$ git log --oneline
+$ git log --oneline grep.c
 
 4002e87cb grep: remove #ifdef NO_PTHREADS
 acd00ea04 userdiff.c: remove implicit dependency on the_index
@@ -185,47 +185,55 @@ acd00ea04 userdiff.c: remove implicit dependency on the_index
 87ece7ce1 Merge branch 'tb/grep-only-matching'
 d036d667b Merge branch 'tb/grep-column'
 00624d608 Merge branch 'sb/object-store-grafts'
+...
 ```
 
 What now?
 
 We can figure out when it disappeared:
 
-```shell
-$ git log -S 'great idea'
+```
+$ git log -S 'the_repository' grep.c
 
-commit 81191b5407687745e7f36b8ae4d78b7ea2377ff0
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:27:06 2016 +0200
+commit 38bbc2ea39372ce1b7eb494b31948f4a8a903f88
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:23 2018 +0200
 
-    this is not a useful commit message
+    grep.c: remove implicit dependency on the_index
+...
+commit 6afaf807859bd671a3f8e9101952e648a1a5e1a9
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:22 2018 +0200
 
-commit baae463ee30ff07a2e346852817cbd2038bd05df
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:26:48 2016 +0200
-
-    initial layout
+    diff.c: remove the_index dependency in textconv() functions
+...
 ```
 
 Now let us have a look at that commit:
 
-```shell
-$ git show 81191b5
+```
+$ git show 38bbc2e grep.c
 
-commit 81191b5407687745e7f36b8ae4d78b7ea2377ff0
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Tue Dec 13 22:27:06 2016 +0200
+commit 38bbc2ea39372ce1b7eb494b31948f4a8a903f88
+Author: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>
+Date:   Fri Sep 21 17:57:23 2018 +0200
 
-    this is not a useful commit message
+    grep.c: remove implicit dependency on the_index
+...
 
-diff --git a/ideas.txt b/ideas.txt
-index a09af89..a657b2b 100644
---- a/ideas.txt
-+++ b/ideas.txt
-@@ -1,3 +1,2 @@
--great idea
- bad idea
- mediocre idea
+diff --git a/grep.c b/grep.c
+index e146ff20b..6c0eede3a 100644
+--- a/grep.c
++++ b/grep.c
+...
+@@ -1741,7 +1744,7 @@ static int fill_textconv_grep(struct userdiff_driver *driver,
+         * structure.
+         */
+        grep_read_lock();
+-       size = fill_textconv(the_repository, driver, df, &buf);
++       size = fill_textconv(r, driver, df, &buf);
+        grep_read_unlock();
+        free_filespec(df);
 ```
 
 Indeed! Thank you, Git!
