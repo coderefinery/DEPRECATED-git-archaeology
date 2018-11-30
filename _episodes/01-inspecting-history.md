@@ -107,6 +107,8 @@ $ git blame <filename>
 Example from real life:
 
 ```
+$ git blame blame.c
+
 072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    1) #include "cache.h"
 072bf4321f (Jeff Smith              2017-05-24 00:15:34 -0500    2) #include "refs.h"
 cbd53a2193 (Stefan Beller           2018-05-15 16:42:15 -0700    3) #include "object-store.h"
