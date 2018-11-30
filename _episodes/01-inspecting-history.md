@@ -68,22 +68,21 @@ Compare this with: [https://github.com/git/git/commit/e83c51633](https://github.
 
 What if the combination of `git log` and `git show` is not enough?
 
-```shell
-$ git grep -i fixme
+```
+$ git grep -i indexing
 
-densfit/df_vxc.F:!fixme call XC integrator
-dirac/dirgrd.F:!FIXME: there is some issue with one-step - investigate later
-dirac/dirrdn.F:!       fixme num grid report should be independent of DFT
-dirac/dirscf.F:        !fixme: michal for InteRest
-dirac/dirscf.F:          !fixme: michal for InteRest
-dirac/dirscf.F:          !fixme: michal for InteRest
-embedding/get_vemb_mat.F:!fixme irep can be < 0 in NONREL runs
-eri/eri2out.F:!fixme
-eri/eri2out.F:!fixme
-eri/eri2out.F:!fixme
-gp/gpkrmc.F:C     FIXME: dette ser ikke ud til at virke for complex groups.
-interest/module_interest_hrr.f90:  !-- fixme --!
-interest/module_interest_interface.F90:    !> fixme: contracted basis sets
+Documentation/config/add.txt:   added due to indexing errors. Equivalent to the `--ignore-errors`
+Documentation/git-add.txt:      If some files could not be added because of errors indexing
+Documentation/git-clone.txt:branch of some repository for search indexing.
+builtin/index-pack.c:                           from_stdin ? _("Receiving objects") : _("Indexing objects"),
+compat/nedmalloc/malloc.c.h:/* ---------------------------- Indexing Bins ---------------------------- */
+compat/nedmalloc/nedmalloc.c:   if(bestsize!=size)      /* dlmalloc can round up, so we round down to preserve indexing */
+diff-delta.c:   /* Determine index hash size.  Note that indexing skips the
+hash.h: * Note that these constants are suitable for indexing the hash_algos array and
+po/bg.po:msgid "read error while indexing %s"
+po/bg.po:msgid "short read while indexing %s"
+po/bg.po:msgid "Indexing objects"
+
 ```
 
 - Greps entire repository below current directory.
