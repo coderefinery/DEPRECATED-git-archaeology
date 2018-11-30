@@ -8,12 +8,12 @@ questions:
 objectives:
   - Quickly find a line of code, find out who introduced it, when, and why.
 keypoints:
-  - "`git show` shows details of a commit" 
+  - "`git show` shows details of a commit"
   - "`git grep` is a fast way to find specific patterns"
   - "`git blame` shows commit hashes and authors for each line of a file"
   - "`git log --grep` finds patterns in commit messages"
   - "`git log -S` shows when code was added and removed"
-  - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code" 
+  - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code"
 ---
 
 ## Inspecting commits
@@ -132,7 +132,7 @@ Who was the last to edit a specific line of the source file for `git grep` and w
 
 ## Grepping commit messages
 
-- Another possible scenario is that you're looking for a particular commit, but can't 
+- Another possible scenario is that you're looking for a particular commit, but can't
 easily find it with `git blame`.
 - You can however remember (or guess) some keywords from the commit message
 - Commit messages can also be grepped!
