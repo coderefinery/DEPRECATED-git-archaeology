@@ -79,7 +79,7 @@ Use `git bisect` to find the commit which broke the computation.
 ### How to find the first commit
 
 ```
-$ git log --oneline --reverse
+$ git log --oneline | tail -n 1
 ```
 
 
