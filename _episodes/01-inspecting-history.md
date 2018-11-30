@@ -16,6 +16,8 @@ keypoints:
   - "`git checkout -b <name> <hash>` is the recommended mechanism to inspect old code"
 ---
 
+Clone the repository of `git` itself from [here](https://github.com/git/git).
+
 ## Inspecting commits
 
 At any moment we can inspect individual commits with `git show`:
